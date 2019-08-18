@@ -49,17 +49,24 @@
              </header>
                 <main> 
                     <div class="jumbotron">
-                        <form>
+                        <form action="phase3.html">
                             <div>
                                 <label for="txtcity">City</label>
-                                <input type="text" id="txtcity" required>
+                                <input type="text" id="txtcity"required >
+                                
                             </div>
                             <div>
-                                <label for="txtstreetnumber">Street Number</label>
-                                <input type="text" id="txtstreetnumber" required>
+                                <label for="txtstreet">Street</label>
+                                <input type="text" id="txtstreet" required>
                             </div>
-                            
-                        </form>
+                            <div>
+                                <label for="txtnumber">Number</label>
+                                <input type="text" id="txtnumber" required>
+                                <p id="err_number" style="color:red;display: none">"Please Insert A Positive Number"</p>
+                            </div>
+                            <button onclick="continueF()">Continue</button>
+                          </form>
+                          <button onclick="previous()">previous</button>
                     </div>
                 </main>
                 <footer>
@@ -71,7 +78,26 @@
                 </footer>
             
     </div>
-   
+   <script>
+      function continueF(){
+      var city=document.getElementById("txtcity").value;
+      var street=document.getElementById("txtstreet").value;
+      var number=document.getElementById("txtnumber").value;
+        if(number<=0){
+          var x = document.getElementById("err_number");
+          if (x.style.display == "none") {
+            x.style.display="block";      
+          }
+        }
+      }
+
+      function previous(){
+        window.location.href = "phase1.html";
+      }
+      localStorage.setItem('City','document.getElementById("txtcity").value');
+      localStorage.setItem('Street',document.getElementById("txtstreet").value);
+      localStorage.setItem('Number',document.getElementById("txtnumber").value);
+   </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
